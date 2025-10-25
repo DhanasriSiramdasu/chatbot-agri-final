@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="auth-card">
+  <h2>Create account</h2>
+  <form method="post">
+    <label>Name<input name="name" type="text"></label>
+    <label>Email<input name="email" type="email" required></label>
+    <label>Password<input name="password" type="password" required></label>
+    <label>Primary crop<input name="primary_crop" type="text"></label>
+    <label>Region<input name="region" type="text"></label>
+    <label>Preferred language
+      <select name="preferred_language">
+        <option value="en">English</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="es">Spanish</option>
+        <option value="fr">French</option>
+      </select>
+    </label>
+    <div class="actions"><button class="btn" type="submit">Register</button></div>
+  </form>
+</div>
+{% endblock %}
