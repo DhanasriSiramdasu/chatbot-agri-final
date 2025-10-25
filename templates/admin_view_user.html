@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>User Details</h2>
+<p><strong>Email:</strong> {{ user.email }}</p>
+<p><strong>Name:</strong> {{ user.name }}</p>
+<p><strong>Role:</strong> {{ user.role }}</p>
+
+<h3>Chat History</h3>
+{% if chats %}
+  <ul>
+  {% for c in chats %}
+    <li><b>You:</b> {{ c.user_message }}<br><b>Bot:</b> {{ c.bot_response }}</li>
+  {% endfor %}
+  </ul>
+{% else %}
+  <p>No chats found for this user.</p>
+{% endif %}
+{% endblock %}
