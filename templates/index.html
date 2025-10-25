@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+  <aside class="sidebar">
+    <h3>Your profile</h3>
+    {% if current_user.is_authenticated %}
+      <p><strong>{{ current_user.name or current_user.email }}</strong></p>
+      <p>Crop: {{ current_user.primary_crop or "—" }}</p>
+      <p>Region: {{ current_user.region or "—" }}</p>
+      <p>Lang: {{ current_user.preferred_language or "en" }}</p>
+      <a class="btn" href="{{ url_for('profile') }}">Edit profile</a>
+    {% else %}
+      <p><a href="{{ url_for('login') }}">Login</a> to save chat & see profile.</p>
+    {% endif %}
+
+    {% if recent_users %}
+      <hr>
+      <h4>Recent users (admin)</h4>
+      <ul class="user-list">
+        {% for u in recent_users %}
+          <li><a href="{{ url_for('admin_view_user', user_id=u.id) }}">{{ u.email }} - {{ u.name or '—' }}</a></li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </aside>
+
+  <section class="chat-panel">
+    <div id="messages" class="messages" aria-live="polite"></div>
+
+    <div class="chat-form">
+      <input type="text" id="msg" placeholder="Type a message..." />
+      <label for="imageInput" class="btn small" style="padding:6px 10px; cursor:pointer;">📷 Upload</label>
+      <input type="file" id="imageInput" accept="image/*" style="display:none;" />
+      <button id="sendBtn" class="btn" type="button">Send</button>
+    </div>
+  </section>
+</div>
+
+<style>
+  .chat-form {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+    align-items: center;
+  }
+  #imageInput {
+    display: none;
+  }
+</style>
+{% endblock %}
