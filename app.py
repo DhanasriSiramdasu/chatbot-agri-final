@@ -90,7 +90,6 @@ def profile():
         flash("Profile updated", "success")
     return render_template("profile.html")
 
-# Chat API
 @app.route("/api/chat", methods=["POST"])
 def api_chat():
     try:
@@ -144,6 +143,7 @@ def api_chat():
     except Exception as e:
         print("Error /api/chat:", e)
         return jsonify({"response":"Internal server error"}), 500
+
 
 
 # Admin
@@ -275,3 +275,4 @@ def admin_clear_chats():
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0")
+
