@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Admin dashboard</h2>
+<div class="admin-grid">
+  <section class="admin-kb">
+    <h3>Knowledge Base</h3>
+    <form method="post" action="{{ url_for('admin_edit_kb') }}">
+      <textarea name="kb_data" rows="14">{{ kb_content }}</textarea>
+      <div class="actions"><button class="btn" type="submit">Save KB</button></div>
+    </form>
+    <h4>Import KB (CSV)</h4>
+    <form method="post" action="{{ url_for('admin_upload_kb_csv') }}" enctype="multipart/form-data">
+      <input type="file" name="csv_file" accept=".csv" required><div class="actions"><button class="btn" type="submit">Upload CSV</button></div>
+      <small>CSV columns: keywords,answer_en,answer_hi,answer_ta</small>
+    </form>
+  </section>
+  <section class="admin-chats">
+    <table class="table"><thead><tr><th>ID</th><th>Email</th><th>Name</th><th>Role</th><th>Action</th></tr></thead><tbody>{% for u in users %}<tr><td>{{ u.id }}</td><td>{{ u.email }}</td><td>{{ u.name }}</td><td>{{ u.role }}</td><td>{% if u.role!='admin' %}<form method="post" action="{{ url_for('admin_delete_user', user_id=u.id) }}"><button class="btn small" type="submit" onclick="return confirm('Delete user?')">Delete</button></form>{% endif %}</td></tr>{% endfor %}</tbody></table>
+  </section>
+</div>
+    <h3>Recent Conversations</h3>
+
+<form method="post" action="{{ url_for('admin_clear_chats') }}" onsubmit="return confirm('Are you sure you want to delete all chat history?');">
+  <button class="btn danger" type="submit">🧹 Clear All Chat History</button>
+</form>
+<br>
+
+<table class="table">
+  <thead>
+    <tr><th>User</th><th>Message</th><th>Reply</th><th>Time</th></tr>
+  </thead>
+  <tbody>
+    {% for c in chats %}
+      <tr>
+        <td>{{ c.user_id or 'Guest' }}</td>
+        <td>{{ c.user_message }}</td>
+        <td>{{ c.bot_response }}</td>
+        <td>{{ c.created_at }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
