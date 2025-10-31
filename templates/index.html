@@ -43,8 +43,32 @@
     margin-top: 12px;
     align-items: center;
   }
-  #imageInput {
-    display: none;
+  .messages {
+    background: #fafafa;
+    border: 1px solid #ccc;
+    height: 420px;
+    padding: 10px;
+    overflow-y: auto;
+    border-radius: 8px;
+  }
+  .user-msg, .bot-msg {
+    padding: 8px 10px;
+    border-radius: 8px;
+    margin: 6px 0;
+    max-width: 80%;
+    word-wrap: break-word;
+  }
+  .user-msg {
+    background: #d8fcd8;
+    align-self: flex-end;
+    text-align: right;
+    margin-left: auto;
+  }
+  .bot-msg {
+    background: #f1f1f1;
+    align-self: flex-start;
+    text-align: left;
+    margin-right: auto;
   }
 </style>
 {% endblock %}

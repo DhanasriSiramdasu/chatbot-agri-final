@@ -93,7 +93,8 @@ body {
     max-width: 78%;
     padding: 10px 14px;
     border-radius: 14px;
-    line-height: 1.4
+    line-height: 1.4;
+    white-space: pre-line;
 }
 
 .user .bubble {
