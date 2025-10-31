@@ -37,23 +37,23 @@ The app also includes **user authentication, profile management**, and **chat hi
 
 ---
    
-2.**Install dependencies**
-   pip install -r requirements.txt
+2.**Install dependencies**</br>
+   pip install -r requirements.txt</br>
 
 ---
 
-3.**Initialize the database**
-  python -m database
+3.**Initialize the database**</br>
+  python -m database</br>
 
 ---
 
-4.**Run the Flask app**
-   python app.py
+4.**Run the Flask app**</br>
+   python app.py</br>
 
 ---
 
-5.**Open the app**
-  Visit : http://localhost:5000
+5.**Open the app**</br>
+  Visit : http://localhost:5000</br>
 
 ---
 
