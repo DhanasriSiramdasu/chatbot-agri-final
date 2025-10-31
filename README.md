@@ -28,32 +28,24 @@ The app also includes **user authentication, profile management**, and **chat hi
 
 ---
 
-##  How to Run the Project
+## ⚙️ How to Run the Project
 
-1. **Clone this repository**
-   ```bash
-   git clone https://github.com/DhanasriSiramdasu/chatbot-agri-final.git
-   cd chatbot-agri-final
+1. **Clone this repository**  
+&emsp;`git clone https://github.com/yourusername/smart-crop-assistant.git`  
+&emsp;`cd smart-crop-assistant`
 
----
-   
-2.**Install dependencies**</br>
-   pip install -r requirements.txt</br>
+2. **Install dependencies**  
+&emsp;`pip install -r requirements.txt`
 
----
+3. **Initialize the database**  
+&emsp;`python -m database`
 
-3.**Initialize the database**</br>
-  python -m database</br>
+4. **Run the Flask app**  
+&emsp;`python app.py`</br>
 
----
+5. **Open the app**  
+&emsp;Visit 👉 [http://localhost:5000](http://localhost:5000)
 
-4.**Run the Flask app**</br>
-   python app.py</br>
-
----
-
-5.**Open the app**</br>
-  Visit : http://localhost:5000</br>
 
 ---
 
@@ -61,7 +53,7 @@ The app also includes **user authentication, profile management**, and **chat hi
 </br>
 <i><h3>Image Analysis</h3></i>
 <img width="800" height="800" alt="image" src="https://github.com/user-attachments/assets/988a318e-0553-4ce6-81d7-487b6aec50dd" /></br>
-<i><h3>Multilingual Chatbot</h3></i>
+<i><h3>Multilingual Chatbot(Used spanish Language here)</h3></i>
 <img width="800" height="800" alt="image" src="https://github.com/user-attachments/assets/2cf5a628-6f99-46fc-a011-a27a848d6ed5" />
 
 
